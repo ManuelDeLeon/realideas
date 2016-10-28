@@ -1,1 +1,4 @@
 /* CSS declarations go here */
+p, li {
+    font-size: medium;
+}

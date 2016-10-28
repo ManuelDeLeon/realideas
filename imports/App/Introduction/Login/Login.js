@@ -7,7 +7,9 @@ Login({
   email: ViewModel.property.string
     .validate(function(value) { return this.validEmail(value) })
     .invalidMessage("Valid email is required"),
-  password: ViewModel.property.string.min(10).invalidMessage("Password must be at least 10 characters long"),
+  password: ViewModel.property.string
+    .validate(function(value) { return (!!value && value.length >= 10) || this.resetHover(); })
+    .invalidMessage("Password must be at least 10 characters long"),
   signHover: false,
   signText() {
     return this.isNew() ? 'Sign Up' : 'Sign In';
@@ -35,6 +37,16 @@ Login({
       });
     }
   },
+  resetPassword() {
+
+  },
+  resetHover: false,
+  showRail() {
+    return (this.signHover() || this.resetHover()) && this.invalid();
+  },
+  showEmailError() {
+    return this.email.invalid() && (this.signHover() || this.resetHover());
+  },
   render() {
     <div>
       <div class="ui centered grid">
@@ -48,7 +60,7 @@ Login({
         </div>
       </div>
       <div class="ui form segment attached">
-        <div b="if: signHover && invalid" class="ui right rail" >
+        <div b="if: showRail" class="ui right rail" >
           <div class="ui red segment">
             <ul class="ui list">
               <li b="text: name.invalidMessage, if: name.invalid" />
@@ -66,7 +78,7 @@ Login({
           </div>
         </div>
 
-        <div class="field required" b="class: { error: signHover && email.invalid }">
+        <div class="field required" b="class: { error: showEmailError }">
           <label>Email</label>
           <div class="ui icon input">
             <input type="text" placeholder="Email" b="value: email, enter: enter"/>
@@ -80,7 +92,14 @@ Login({
             <i class="lock icon" />
           </div>
         </div>
-        <div class="ui button" b="click: enter, text: signText, class: { primary: valid }, hover: signHover"></div>
+        <div class="ui button" b="click: enter, text: signText, class: { primary: valid && !resetHover }, hover: signHover"></div>
+        <hr/>
+        <div class="field" b="if: !isNew">
+          <label>Forgot Password</label>
+            <button class="ui button" b="click: resetPassword, hover: resetHover, class: { orange: email.valid && resetHover }"><i class="flag outline icon" />Reset password</button>
+
+        </div>
+
       </div>
     </div>
   </div>
