@@ -10,9 +10,7 @@
     "react-dom": "^15.3.2",
     "toastr": "^2.1.2",
     "viewmodel-react": "^0.8.10",
-    "viewmodel-react-explorer": "^1.0.6"
-  },
-  "devDependencies": {
+    "viewmodel-react-explorer": "^1.0.6",
     "viewmodel-react-plugin": "^0.8.5"
   }
 }

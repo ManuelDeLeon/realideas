@@ -6,12 +6,6 @@ Introduction({
         <p>Give a real idea and get 10 real ones back.</p>
       </div>
 
-      <div class="ui black segment">
-        <h2>Get started:</h2>
-        <Login />
-      </div>
-
-
       <div class="ui black segment" >
         <h2>How does it work?</h2>
         <div class="ui ordered steps">
@@ -40,7 +34,7 @@ Introduction({
       <div class="ui black segment" >
         <h2>FAQ</h2>
 
-        <h3>Why did you create this?</h3>
+        <h3><i class="caret right icon" />Why did you create this?</h3>
         <p>I really like this concept (give and receive ideas) but similar sites have absolutely no vetting process. You submit an idea and you get 10 lorem ipsums. That won't happen here.</p>
 
         <h3><i class="caret right icon" />Why share my idea?</h3>
@@ -85,6 +79,11 @@ Introduction({
 
         <h3><i class="caret right icon" />Can I submit more than one?</h3>
         <p>Sure. Keep'em coming.</p>
+      </div>
+
+      <div class="ui black segment">
+        <h2>Get started:</h2>
+        <Login />
       </div>
     </div>
   }
