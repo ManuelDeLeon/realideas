@@ -51,9 +51,9 @@ Login({
         <div b="if: signHover && invalid" class="ui right rail" >
           <div class="ui red segment">
             <ul class="ui list">
-              <li b="text: name.invalidMessage, if: name.invalid"></li>
-              <li b="text: email.invalidMessage, if: email.invalid"></li>
-              <li b="text: password.invalidMessage, if: password.invalid"></li>
+              <li b="text: name.invalidMessage, if: name.invalid" />
+              <li b="text: email.invalidMessage, if: email.invalid" />
+              <li b="text: password.invalidMessage, if: password.invalid" />
             </ul>
           </div>
         </div>
@@ -62,7 +62,7 @@ Login({
           <label>First Name</label>
           <div class="ui icon input">
             <input type="text" placeholder="First Name" b="value: name" />
-            <i class="user icon"></i>
+            <i class="user icon" />
           </div>
         </div>
 
@@ -70,14 +70,14 @@ Login({
           <label>Email</label>
           <div class="ui icon input">
             <input type="text" placeholder="Email" b="value: email, enter: enter"/>
-            <i class="mail icon"></i>
+            <i class="mail icon" />
           </div>
         </div>
         <div class="field required" b="class: { error: signHover && password.invalid }">
           <label>Password</label>
           <div class="ui icon input">
             <input type="password" b="value: password, enter: enter"/>
-            <i class="lock icon"></i>
+            <i class="lock icon" />
           </div>
         </div>
         <div class="ui button" b="click: enter, text: signText, class: { primary: valid }, hover: signHover"></div>
