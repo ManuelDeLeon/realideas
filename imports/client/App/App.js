@@ -1,4 +1,10 @@
 import '../Mixins/loadMixins';
+
+AccountsTemplates.configure({
+  confirmPassword: false,
+  showForgotPasswordLink: true
+});
+
 const ViewModelExplorer = process.env.NODE_ENV === 'production' ?
   (()=> null)
   : require('viewmodel-react-explorer').ViewModelExplorer;
@@ -15,6 +21,9 @@ App({
           <Main b="if: user.logged" />
           <Introduction b="if: !user.logged" />
         </div>
+      </div>
+      <div  class="ui one column centered grid">
+        <a href="mailto:everyone@realideas.site">Contact Us</a>
       </div>
     </div>
   }

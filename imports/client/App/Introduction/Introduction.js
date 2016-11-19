@@ -1,9 +1,11 @@
+const LoginButtons = BlazeToReact('atForm');
+
 Introduction({
   render(){
     <div class="ui basic segment">
       <div class="ui black segment" >
         <h1>Real Ideas</h1>
-        <p>Give a real idea and get 10 real ones back.</p>
+        <p>Give an idea and get 10 real ones back.</p>
       </div>
 
       <div class="ui black segment" >
@@ -38,18 +40,18 @@ Introduction({
         <p>I really like this concept (give and receive ideas) but similar sites have absolutely no vetting process. You submit an idea and you get 10 lorem ipsums. That won't happen here.</p>
 
         <h3><i class="caret right icon" />Why share my idea?</h3>
-        <p>Chances are that if you haven't worked on your idea by now, you won't do it at all. Share your idea and you might get one or more that you WILL work on.</p>
+        <p>Chances are if you haven't worked on your idea by now, you probably won't do it at all. Share your idea and you might get one or more that you WILL work on.</p>
 
         <h3><i class="caret right icon" />What do you mean by "real idea"?</h3>
         <p>You need to show that you've thought of it for more than a minute. Things to keep in mind when writing your idea:</p>
         <ol>
           <li>What's the problem?</li>
           <li>Who's hurting enough to want to pay for a solution?</li>
-          <li>Do you know they're hurting or do you think they are?</li>
           <li>What's the solution?</li>
-          <li>How will you reach your audience?</li>
+          <li>Why would anyone pay for that?</li>
+          <li>How would you reach your audience?</li>
           <li>Are there other solutions out there?</li>
-          <li>How is your solution different?</li>
+          <li>How is your solution any different?</li>
         </ol>
 
         <h3><i class="caret right icon" />Will you reject bad ideas?</h3>
@@ -69,10 +71,8 @@ Introduction({
           <li>3 at random</li>
         </ul>
 
-        <h3><i class="caret right icon" />Why get ideas from the bottom 3rd?</h3>
-        <p>A few reasons:</p>
+        <h3><i class="caret right icon" />Why even get ideas from the bottom 3rd?</h3>
         <ol>
-          <li>These are real ideas so even the ones in the bottom 3rd are bound to be okay.</li>
           <li>You might get inspiration or put a twist on these.</li>
           <li>It's random so you might not even get a "low quality" idea.</li>
         </ol>
@@ -83,7 +83,9 @@ Introduction({
 
       <div class="ui black segment">
         <h2>Get started:</h2>
-        <Login />
+        <div class="ui basic segment" style="max-width: 400px; margin: auto;">
+          <LoginButtons />
+        </div>
       </div>
     </div>
   }
