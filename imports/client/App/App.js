@@ -13,11 +13,13 @@ App({
   mixin: {
     user: 'user'
   },
+  loggingInDisplay() {
+    return this.user.loggingIn() ? "none" : "block";
+  },
   render() {
     <div>
-      <ViewModelExplorer />
       <div  class="ui one column centered grid">
-        <div class="column" style="max-width: 1024px; margin: 30px;">
+        <div b="style: { display: loggingInDisplay }" class="column" style="max-width: 1024px; margin: 30px;">
           <Main b="if: user.logged" />
           <Introduction b="if: !user.logged" />
         </div>

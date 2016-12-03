@@ -8,6 +8,7 @@ Idea({
   wrap(){
     return this.expand() ? 'pre-wrap' : 'nowrap';
   },
+  _id: '',
   text: '',
   ratings: [ 1,2,3,4,5,6,7,8,9,10 ],
   rate(rating) {
@@ -20,7 +21,7 @@ Idea({
     if (this.expand()) {
       return this.text();
     } else {
-      const added = this.pending() || this.rejected() || !this.rating() ? '' : this.rating() + '%  -  ';
+      const added = this.pending() || this.rejected() || !this.rating() ? '' : this.rating() + '  -  ';
       return added + this.text().substr(0, 100) + '...';
     }
   },
@@ -30,13 +31,19 @@ Idea({
       || this.tab() === 'other-ideas'
       );
   },
+  acceptIdea() {
+    Meteor.call('accept-idea', this._id());
+  },
+  rejectIdea() {
+    Meteor.call('reject-idea', this._id());
+  },
   render() {
     <div class="ui segment" b="class: { blue: expand }">
       <h3 b="if: pending && tab === 'your-ideas'">Pending Review</h3>
       <h3 b="if: rejected" style="color: red;">Rejected</h3>
       <p style="cursor: pointer" b="text: displayText, style: { white-space: wrap }, toggle: expand" />
       <div b="if: showLatestRating">
-        <h3 title="The latest rating changes as people rate this idea.">Latest Rating: <span b="text: rating"/>%</h3>
+        <h3>Rating: <span b="text: rating"/></h3>
       </div>
 
       <div b="if: expand && tab === 'other-ideas'" style="margin-top: 10px;">
@@ -49,8 +56,8 @@ Idea({
       </div>
 
       <div b="if: expand && tab === 'pending-ideas'">
-        <button type="button" class="ui green button">Accept</button>
-        <button type="button" class="ui red button right floated">Reject</button>
+        <button b="click: acceptIdea" type="button" class="ui green button">Accept</button>
+        <button b="click: rejectIdea" type="button" class="ui red button right floated">Reject</button>
       </div>
 
     </div>
